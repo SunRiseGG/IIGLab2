@@ -164,16 +164,36 @@ namespace Lab2 {
 
         [TestMethod]
         public void TestDispose() {
-            ulong tmp = 42069;
-            Exception ex = null;
-            MultipleBinaryFlag test1 = new MultipleBinaryFlag(tmp, false);
+            ulong tmp1 = 42069;
+            ulong tmp2 = 65;
+            ulong tmp3 = 64;
+            Exception ex1 = null;
+            Exception ex2 = null;
+            Exception ex3 = null;
+            MultipleBinaryFlag test1 = new MultipleBinaryFlag(tmp1, false);
+            MultipleBinaryFlag test2 = new MultipleBinaryFlag(tmp2, false);
+            MultipleBinaryFlag test3 = new MultipleBinaryFlag(tmp3, false);
             test1.Dispose();
+            test2.Dispose();
+            test3.Dispose();
+            try {
+                test3.GetFlag();
+            } catch(Exception e) {
+                ex3 = e;
+            }
             try {
                 test1.GetFlag();
             } catch(Exception e) {
-                ex = e;
+                ex1 = e;
             }
-            Assert.IsNotNull(ex);
+            try {
+                test2.GetFlag();
+            } catch(Exception e) {
+                ex2 = e;
+            }
+            Assert.IsNotNull(ex1);
+            Assert.IsNotNull(ex2);
+            Assert.IsNull(ex3);
         }
 
         [TestMethod]
