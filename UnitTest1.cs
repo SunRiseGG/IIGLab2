@@ -60,8 +60,8 @@ namespace Lab2 {
             ulong tmp = 3;
             MultipleBinaryFlag test1 = new MultipleBinaryFlag(tmp, true);
             MultipleBinaryFlag test2 = new MultipleBinaryFlag(tmp, false);
-            Assert.Equals(test1.ToString(), "TTT");
-            Assert.Equals(test2.ToString(), "FFF");
+            Assert.AreEqual(test1.ToString(), "TTT");
+            Assert.AreEqual(test2.ToString(), "FFF");
         }
 
         [TestMethod]
@@ -69,7 +69,7 @@ namespace Lab2 {
             ulong tmp = 3;
             MultipleBinaryFlag test1 = new MultipleBinaryFlag(tmp, true);
             MultipleBinaryFlag test2 = test1;
-            Assert.Equals(test1, test2);
+            Assert.AreEqual(test1, test2);
         }
 
         [TestMethod]
@@ -95,7 +95,7 @@ namespace Lab2 {
             ulong position = 6;
             MultipleBinaryFlag test1 = new MultipleBinaryFlag(tmp1, true);
             test1.ResetFlag(position);
-            Assert.Equals(test1.ToString(), "TTTTTTFTTT");
+            Assert.AreEqual(test1.ToString(), "TTTTTTFTTT");
         }
 
         [TestMethod]
@@ -107,7 +107,7 @@ namespace Lab2 {
             test1.ResetFlag(position1);
             test1.ResetFlag(position2);
             Assert.IsTrue(test1.GetFlag());
-            Assert.Equals(test1.ToString(), "TT");
+            Assert.AreEqual(test1.ToString(), "TT");
         }
 
         [TestMethod]
